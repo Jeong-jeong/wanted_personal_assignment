@@ -6,11 +6,11 @@ ${reset}
 * {
 	box-sizing: border-box;
 	margin: 0;
+	font-family: 'Spoqa Han Sans Neo', apple-system, system-ui, Dotum,'돋움',Helvetica, sans-serif; 
 }
 
-html, body {
+	body {
 	background-color: #fff;
-	font-family: apple-system, system-ui, Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif; 
 }
 
 a {
