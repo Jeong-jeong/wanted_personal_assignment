@@ -18,6 +18,6 @@ export const BadgeInner = styled.div`
   ${fontBadge};
 `;
 
-export const percentage = styled.span`
+export const Percentage = styled.span`
   font-size: 8px;
 `;

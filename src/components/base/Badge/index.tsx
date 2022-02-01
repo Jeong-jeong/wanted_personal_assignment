@@ -10,7 +10,7 @@ const Badge = ({ discountRate }: BadgeProps): ReactElement => (
     {discountRate > 0 && (
       <S.BadgeInner>
         {discountRate}
-        <S.percentage>%</S.percentage>
+        <S.Percentage>%</S.Percentage>
       </S.BadgeInner>
     )}
   </S.BadgeWrapper>
