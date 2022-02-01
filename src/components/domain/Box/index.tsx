@@ -1,17 +1,20 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { IProductItem } from '@types';
+import { useCheckSameId } from '@hooks';
 import { Badge } from '@components/base';
 import * as S from './Style';
 
 interface BoxProps {
   productItem: IProductItem;
-  isActive?: boolean;
+  activedId?: number;
 }
 
-const Box = ({ productItem, isActive = false }: BoxProps): ReactElement => {
+const Box = ({ productItem, activedId = 0 }: BoxProps): ReactElement => {
   const { productId, imageUrl, discountRate } = productItem;
+  const [isActive] = useCheckSameId(activedId, productId);
+
   return (
-    <S.BoxWrapper isActive={isActive} data-id={productId}>
+    <S.BoxWrapper isActive={isActive}>
       <S.BoxInner imageUrl={imageUrl} />
       <Badge discountRate={discountRate} />
     </S.BoxWrapper>

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { flexbox } from '@styles/commonStyles';
 
 export interface BoxWrapperProps {
-  isActive?: boolean;
+  isActive: boolean;
   theme: {
     [propName: string]: number | string;
   };
