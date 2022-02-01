@@ -6,6 +6,7 @@ ${reset}
 * {
 	box-sizing: border-box;
 	margin: 0;
+	padding: 0;
 	font-family: 'Spoqa Han Sans Neo', apple-system, system-ui, Dotum,'돋움',Helvetica, sans-serif; 
 }
 
@@ -20,6 +21,8 @@ a {
 
 button {
 	cursor: pointer;
+	background: transparent;
+	border: none;
 }
 
 ol, ui, li {
