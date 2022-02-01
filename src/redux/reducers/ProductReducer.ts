@@ -5,11 +5,12 @@ import {
   UPDATE_ACTIVED_ID,
   productListDispatchType,
 } from '@redux/types';
+import { getProductListKey } from '@utils/constants';
+import { getStorageValue, checkSameId } from '@utils/functions';
 
 interface InitialState {
   success: boolean;
   productList?: IProductList;
-  activedId?: number;
 }
 
 const initialState: InitialState = {
@@ -32,12 +33,20 @@ const ProductReducer = (
         ...state,
         success: false,
       };
-    case UPDATE_ACTIVED_ID:
+    case UPDATE_ACTIVED_ID: {
+      const parsedValue = getStorageValue(getProductListKey, {});
+
       return {
         ...state,
-        activedId: action.payload,
+        success: true,
+        productList: {
+          ...parsedValue,
+          activedId: checkSameId(state.productList?.activedId, action.payload)
+            ? 0
+            : action.payload,
+        },
       };
-
+    }
     default:
       return state;
   }
