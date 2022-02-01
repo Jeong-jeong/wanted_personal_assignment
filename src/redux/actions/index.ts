@@ -4,6 +4,7 @@ import {
   productListDispatchType,
   GET_PRODUCT_LIST_SUCCESS,
   GET_PRODUCT_LIST_FAIL,
+  UPDATE_ACTIVED_ID,
 } from '@redux/types';
 
 export const fetchProductList =
@@ -21,4 +22,12 @@ export const fetchProductList =
         type: GET_PRODUCT_LIST_FAIL,
       });
     }
+  };
+
+export const updateActivedId =
+  (productId: number) => (dispatch: Dispatch<productListDispatchType>) => {
+    dispatch({
+      type: UPDATE_ACTIVED_ID,
+      payload: productId,
+    });
   };
