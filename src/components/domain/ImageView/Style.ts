@@ -5,5 +5,5 @@ export const ImageViewWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 800px;
+  width: ${({ theme }) => `${theme.imageViewSize.width}px`};
 `;
