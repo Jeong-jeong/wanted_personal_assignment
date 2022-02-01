@@ -1,3 +1,4 @@
+import { base } from '@styles/fonts';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
@@ -11,7 +12,9 @@ ${reset}
 }
 
 	body {
+	${base};
 	background-color: #fff;
+	-webkit-font-smoothing: antialiased;
 }
 
 a {

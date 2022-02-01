@@ -5,3 +5,9 @@ export const fontBadge = css`
   font-weight: bold;
   line-height: 25px;
 `;
+
+export const base = css`
+  font-size: ${({ theme }) => theme.fonts.base};
+  line-height: 1.42857143;
+  color: ${({ theme }) => theme.colors.primary};
+`;
