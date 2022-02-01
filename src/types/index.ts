@@ -1,17 +1,17 @@
 export interface IProductList {
-  id: string;
+  id: number;
   imageUrl: string;
   productList: IProductItem[];
 }
 
 export interface IProductItem {
-  productId: string;
+  productId: number;
   productName: string;
-  isOutside: boolean;
-  pointX: number;
-  pointY: number;
+  imageUrl: string;
   priceOriginal: number;
   priceDiscount: number;
-  discountRate: string | number;
-  imageUrl: string;
+  pointX: number;
+  pointY: number;
+  outside: boolean;
+  discountRate: number;
 }
