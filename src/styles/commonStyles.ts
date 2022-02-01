@@ -36,8 +36,8 @@ export const flexbox = ({
   `;
 };
 
-export const alignBackgroundImage = css`
+export const alignBackgroundImage = (size: string) => css`
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: ${size};
 `;

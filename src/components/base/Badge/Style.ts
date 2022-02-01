@@ -14,7 +14,7 @@ export const BadgeInner = styled.div`
   text-align: center;
   color: white;
   background-image: url(${badge});
-  ${alignBackgroundImage};
+  ${alignBackgroundImage('contain')};
   ${fontBadge};
 `;
 
