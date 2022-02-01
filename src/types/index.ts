@@ -1,5 +1,6 @@
 export interface IProductList {
   id: number;
+  activedId: number;
   imageUrl: string;
   productList: IProductItem[];
 }
