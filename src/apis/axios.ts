@@ -1,12 +1,18 @@
 import axios from 'axios';
+import { API_END_POINT } from './environment';
 
-const instance = axios.create({
-  withCredentials: true,
-});
+const API = () => {
+  const instance = axios.create({
+    baseURL: API_END_POINT,
+  });
 
-instance.interceptors.response.use(
-  (response) => response.data,
-  (error) => Promise.reject(error)
-);
+  instance.interceptors.response.use(
+    (response) => response.data,
+    (error) => Promise.reject(error)
+  );
 
-export default instance;
+  return instance;
+};
+
+const request = API();
+export default request;
