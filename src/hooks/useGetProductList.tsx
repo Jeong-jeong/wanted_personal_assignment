@@ -5,7 +5,7 @@ import { fetchProductList } from '@redux/actions';
 import { IProductList } from '@types';
 import useLocalStorage from './useLocalStorage';
 
-const useGetProductList = (): [IProductList | unknown, boolean] => {
+const useGetProductList = (): [IProductList, boolean] => {
   // @NOTE: 마운티드 되고 데이터를 받아서 localStorage에 저장
   // 이후부턴 직접 fetch 하지 않고, localStorage 값을 가져옴.
 
