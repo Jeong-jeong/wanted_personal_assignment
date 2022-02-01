@@ -1,6 +1,5 @@
 export interface IProductList {
-  listId: string;
-  field: string;
+  id: string;
   imageUrl: string;
   productList: IProductItem[];
 }
