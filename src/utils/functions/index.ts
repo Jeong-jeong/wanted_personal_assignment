@@ -17,6 +17,8 @@ export const getPositionOfTooltip = (pointX: number, pointY: number) => {
   const horizontal: Horizontal =
     pointX > theme.imageViewSize.width / 2 ? 'right' : 'left';
 
-  console.log(pointX > theme.imageViewSize.width / 2, horizontal);
   return { veritcal, horizontal };
 };
+
+export const putCommaEvery3 = (price: number): string =>
+  price.toLocaleString('ko-KR');

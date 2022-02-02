@@ -41,3 +41,25 @@ export const alignBackgroundImage = (size: string) => css`
   background-repeat: no-repeat;
   background-size: ${size};
 `;
+
+type ellipsisProps = 1 | 2;
+
+export const ellipsis = (line: ellipsisProps) => {
+  if (line === 1) {
+    return css`
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    `;
+  } else {
+    return css`
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: ${line};
+      white-space: initial;
+    `;
+  }
+};
