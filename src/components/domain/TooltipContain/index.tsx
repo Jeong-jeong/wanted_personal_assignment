@@ -1,7 +1,8 @@
 import { IProductItem } from '@types';
 import { useCheckSameId } from '@hooks';
-import { Tooltip } from '@components/base';
-import { getPositionOfTooltip } from '@utils/functions';
+import { getPositionOfTooltip, putCommaEvery3 } from '@utils/functions';
+import { Tooltip, MoveIcon } from '@components/base';
+import * as S from './Style';
 
 interface TooltipContain {
   item: IProductItem;
@@ -9,16 +10,36 @@ interface TooltipContain {
 }
 
 const TooltipContain = ({ item, activedId }: TooltipContain) => {
-  const [isActive] = useCheckSameId(activedId, item.productId);
+  const {
+    productId,
+    productName,
+    imageUrl,
+    pointX,
+    pointY,
+    discountRate,
+    priceDiscount,
+    outside,
+  } = item;
+  const [isActive] = useCheckSameId(activedId, productId);
 
   return (
     <>
       {isActive && (
-        <Tooltip position={getPositionOfTooltip(item.pointX, item.pointY)}>
-          <div>
-            hi
-            {/* <img src={item.imageUrl} alt={item.productName} /> */}
-          </div>
+        <Tooltip position={getPositionOfTooltip(pointX, pointY)}>
+          <S.Image imageUrl={imageUrl} aria-label={productName} />
+          <S.TooltipInfos>
+            <S.TooltipName>{productName}</S.TooltipName>
+            <S.PriceInfos>
+              {outside ? (
+                <span className="expectedPrice">예상가</span>
+              ) : (
+                <span className="discountedPrice">{discountRate}%</span>
+              )}
+
+              <S.Price>{putCommaEvery3(priceDiscount)}</S.Price>
+            </S.PriceInfos>
+          </S.TooltipInfos>
+          <MoveIcon />
         </Tooltip>
       )}
     </>

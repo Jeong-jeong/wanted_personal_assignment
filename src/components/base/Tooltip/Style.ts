@@ -12,7 +12,7 @@ interface TooltipWrapperProps {
 
 const TooltipArrowTop = css`
   top: unset;
-  bottom: -8px;
+  bottom: ${({ theme }) => `${-theme.gap.Tooltip}px`};
   transform: rotate(180deg);
 `;
 
@@ -32,18 +32,20 @@ const TooltipArrowRight = css`
 
 export const TooltipWrapper = styled.div<TooltipWrapperProps>`
   // @NOTE: Tooltip 기본 위치: left, bottom
-  ${flexbox({ flex: 'flex' })};
+  ${flexbox({ flex: 'flex', ai: 'end' })};
   position: absolute;
   top: 28px;
   left: -20px;
   width: 220px;
   height: 86px;
-  padding: 8px 0 8px 8px;
+  padding: ${({ theme }) =>
+    `${theme.gap.Tooltip}px 0 ${theme.gap.Tooltip}px ${theme.gap.Tooltip}px`};
   margin-top: 16px;
   border-radius: 7px;
   color: ${({ theme }) => theme.colors.tertiary};
   background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) =>
+    `3px 3px ${theme.gap.Tooltip}px 0 rgba(0, 0, 0, 0.2);`};
   z-index: ${({ theme }) => theme.zIndex.tooltip};
   ${({ position }) => position?.veritcal === 'top' && TooltipTop};
   ${({ position }) => position?.horizontal === 'right' && TooltipRight};
@@ -51,10 +53,10 @@ export const TooltipWrapper = styled.div<TooltipWrapperProps>`
   &::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: ${({ theme }) => `${-theme.gap.Tooltip}px`};
     left: 34px;
     width: 12px;
-    height: 8px;
+    height: ${({ theme }) => `${theme.gap.Tooltip}px`};
     background-image: url(${tooltipTop});
     ${alignBackgroundImage('cover')};
     z-index: ${({ theme }) => theme.zIndex.tooltipArrow};

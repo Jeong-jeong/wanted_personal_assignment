@@ -13,6 +13,10 @@ const fonts = {
   base: '14px',
 };
 
+const gap = {
+  Tooltip: 8,
+};
+
 const zIndex = {
   tooltip: 1000,
   tooltipArrow: 1100,
@@ -26,6 +30,7 @@ const imageViewSize = {
 const theme = {
   colors,
   fonts,
+  gap,
   zIndex,
   imageViewSize,
 };
