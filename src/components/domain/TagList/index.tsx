@@ -16,11 +16,12 @@ const TagList = ({ storedValue, rateOfImageDiff }: TagLIstProps) => {
   return (
     <S.TagWrapper>
       {React.Children.toArray(
-        storedValue?.productList?.map((item: IProductItem) => (
+        storedValue?.productList?.map((item: IProductItem, index) => (
           // @NOTE: pointX, poinY 반대로 넣어줘야 함
           <S.TagItem
             className="toggle"
             data-id={item.productId}
+            data-swipe-index={index}
             pointX={item.pointY * rateOfImageDiff + theme.gap.image}
             pointY={item.pointX * rateOfImageDiff}>
             <Tag

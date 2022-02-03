@@ -2,7 +2,7 @@ import { IProductList } from '@types';
 import {
   GET_PRODUCT_LIST_SUCCESS,
   GET_PRODUCT_LIST_FAIL,
-  UPDATE_ACTIVED_ID,
+  UPDATE_DATASET,
   productListDispatchType,
 } from '@redux/types';
 import { getProductListKey } from '@utils/constants';
@@ -33,16 +33,18 @@ const ProductReducer = (
         ...state,
         success: false,
       };
-    case UPDATE_ACTIVED_ID: {
+    case UPDATE_DATASET: {
       const parsedValue = getStorageValue(getProductListKey, {});
+      const { clickedId, clickedSwipeIndex } = action.payload;
       return {
         ...state,
         success: true,
         productList: {
           ...parsedValue,
-          activedId: checkSameId(state.productList?.activedId, action.payload)
+          clickedSwipeIndex,
+          activedId: checkSameId(state.productList?.activedId, clickedId)
             ? 0
-            : action.payload,
+            : clickedId,
         },
       };
     }

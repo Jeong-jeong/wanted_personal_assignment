@@ -4,7 +4,7 @@ import {
   productListDispatchType,
   GET_PRODUCT_LIST_SUCCESS,
   GET_PRODUCT_LIST_FAIL,
-  UPDATE_ACTIVED_ID,
+  UPDATE_DATASET,
 } from '@redux/types';
 
 export const fetchProductList =
@@ -24,10 +24,16 @@ export const fetchProductList =
     }
   };
 
-export const updateActivedId =
-  (clickedId: number) => (dispatch: Dispatch<productListDispatchType>) => {
+interface UpdateActivedIdProps {
+  clickedId: number;
+  clickedSwipeIndex: number;
+}
+
+export const updateDataSet =
+  ({ clickedId, clickedSwipeIndex }: UpdateActivedIdProps) =>
+  (dispatch: Dispatch<productListDispatchType>) => {
     dispatch({
-      type: UPDATE_ACTIVED_ID,
-      payload: clickedId,
+      type: UPDATE_DATASET,
+      payload: { clickedId, clickedSwipeIndex },
     });
   };

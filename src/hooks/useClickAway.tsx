@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateActivedId } from '@redux/actions';
+import { updateDataSet } from '@redux/actions';
 
 const useClickAway = (): void => {
   const dispatch = useDispatch();
@@ -9,7 +9,8 @@ const useClickAway = (): void => {
     const listener = (event: any) => {
       const target = event.target.closest('.toggle');
       const clickedId = target ? +target.dataset.id : 0;
-      dispatch(updateActivedId(clickedId));
+      const clickedSwipeIndex = target && +target.dataset.swipeIndex;
+      dispatch(updateDataSet({ clickedId, clickedSwipeIndex }));
     };
     document.addEventListener('click', listener);
     return () => {

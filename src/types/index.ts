@@ -1,6 +1,7 @@
 export interface IProductList {
   id: number;
   activedId: number;
+  clickedSwipeIndex: number;
   imageUrl: string;
   productList: IProductItem[];
 }

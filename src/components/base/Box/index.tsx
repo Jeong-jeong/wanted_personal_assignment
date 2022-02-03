@@ -7,9 +7,10 @@ import * as S from './Style';
 interface BoxProps {
   productItem: IProductItem;
   activedId?: number;
+  index: number;
 }
 
-const Box = ({ productItem, activedId = 0 }: BoxProps): ReactElement => {
+const Box = ({ productItem, activedId = 0, index }: BoxProps): ReactElement => {
   const { productId, imageUrl, discountRate } = productItem;
   const [isActive] = useCheckSameId(activedId, productId);
 
@@ -17,6 +18,7 @@ const Box = ({ productItem, activedId = 0 }: BoxProps): ReactElement => {
     <S.BoxWrapper
       className="toggle"
       isActive={isActive}
+      data-swipe-index={index}
       data-id={productItem.productId}>
       <S.BoxInner imageUrl={imageUrl} />
       <Badge discountRate={discountRate} />
