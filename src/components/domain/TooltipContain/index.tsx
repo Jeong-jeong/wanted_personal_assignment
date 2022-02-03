@@ -1,3 +1,4 @@
+import React from 'react';
 import { IProductItem } from '@types';
 import { useCheckSameId } from '@hooks';
 import { getPositionOfTooltip, putCommaEvery3 } from '@utils/functions';
@@ -21,11 +22,18 @@ const TooltipContain = ({ item, activedId }: TooltipContain) => {
     outside,
   } = item;
   const [isActive] = useCheckSameId(activedId, productId);
+  const moveToPage = (e: React.MouseEvent<HTMLSpanElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('페이지 이동');
+  };
 
   return (
     <>
       {isActive && (
-        <Tooltip position={getPositionOfTooltip(pointX, pointY)}>
+        <Tooltip
+          position={getPositionOfTooltip(pointX, pointY)}
+          onClick={moveToPage}>
           <S.Image imageUrl={imageUrl} aria-label={productName} />
           <S.TooltipInfos>
             <S.TooltipName>{productName}</S.TooltipName>
@@ -46,4 +54,4 @@ const TooltipContain = ({ item, activedId }: TooltipContain) => {
   );
 };
 
-export default TooltipContain;
+export default React.memo(TooltipContain);

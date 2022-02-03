@@ -13,11 +13,20 @@ export interface PositionType {
 
 export interface TooltipProps {
   position?: PositionType;
+  onClick: React.MouseEventHandler<HTMLElement>;
   children: ReactElement | ReactElement[] | string;
 }
 
-const Tooltip = ({ position, children }: TooltipProps): ReactElement => {
-  return <S.TooltipWrapper position={position}>{children}</S.TooltipWrapper>;
+const Tooltip = ({
+  position,
+  onClick,
+  children,
+}: TooltipProps): ReactElement => {
+  return (
+    <S.TooltipWrapper position={position} onClick={onClick}>
+      {children}
+    </S.TooltipWrapper>
+  );
 };
 
 export default Tooltip;
