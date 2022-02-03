@@ -14,10 +14,9 @@ export interface BoxInnerProps {
 
 export const BoxWrapper = styled.div<BoxWrapperProps>`
   position: relative;
-  ${flexbox({ flex: 'inline-flex' })};
   width: fit-content;
   height: fit-content;
-  margin: 28px 6px;
+  margin: ${({ theme }) => `28px ${theme.gap.box}px`};
   cursor: pointer;
   ${({ isActive, theme }) => {
     switch (isActive) {

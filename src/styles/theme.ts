@@ -14,8 +14,10 @@ const fonts = {
 };
 
 const gap = {
+  box: 6,
   Tooltip: 8,
   image: 11,
+  swiper: 10,
 };
 
 const zIndex = {
@@ -26,7 +28,7 @@ const zIndex = {
 const size = {
   imageViewWidth: 800,
   imageViewHeight: 998,
-  boxWidth: 160,
+  boxWidth: 106,
 };
 
 const theme = {
