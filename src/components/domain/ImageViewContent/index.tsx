@@ -11,7 +11,7 @@ const ImageViewContent = ({ storedValue }: IProductListProps) => {
   return (
     <S.ImageViewWrapper>
       <S.Image ref={imageRef} src={storedValue?.imageUrl} alt="test 이미지" />
-      <TagList storedValue={storedValue} rateOfImageDiff={imageRate || 1} />
+      <TagList storedValue={storedValue} rateOfImageDiff={imageRate || 1.6} />
     </S.ImageViewWrapper>
   );
 };
