@@ -1,4 +1,4 @@
-# 목표는 취업이조
+# 목표는 취업이조 2팀
 
 ## 🚀 정보
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9ea3e503-0bd9-45e7-bf1f-1f7be27ed38d/deploy-status)](https://app.netlify.com/sites/personal-assignment-firstweek/deploys)
