@@ -6,4 +6,5 @@ export const ImageViewWrapper = styled.div`
 
 export const Image = styled.img`
   width: ${({ theme }) => `${theme.size.imageViewWidth}px`};
+  height: ${({ theme }) => `${theme.size.imageViewHeight}px`};
 `;
