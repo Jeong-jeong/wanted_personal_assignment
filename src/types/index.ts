@@ -5,6 +5,10 @@ export interface IProductList {
   productList: IProductItem[];
 }
 
+export interface IProductListProps {
+  storedValue: IProductList;
+}
+
 export interface IProductItem {
   productId: number;
   productName: string;

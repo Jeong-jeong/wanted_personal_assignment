@@ -1,12 +1,9 @@
-import { IProductList } from '@types';
+import React from 'react';
+import { IProductListProps } from '@types';
 import { TagList } from '@components/domain';
 import * as S from './Style';
 
-interface ImageViewProps {
-  storedValue: IProductList;
-}
-
-const ImageView = ({ storedValue }: ImageViewProps) => {
+const ImageView = ({ storedValue }: IProductListProps) => {
   return (
     <S.ImageViewWrapper>
       <S.Image src={storedValue.imageUrl} alt="test 이미지" />
@@ -15,4 +12,4 @@ const ImageView = ({ storedValue }: ImageViewProps) => {
   );
 };
 
-export default ImageView;
+export default React.memo(ImageView);
