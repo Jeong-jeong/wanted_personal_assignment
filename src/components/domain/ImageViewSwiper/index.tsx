@@ -6,7 +6,7 @@ const ImageViewSwiper = ({ storedValue }: IProductListProps) => {
   return (
     <>
       {React.Children.toArray(
-        storedValue?.productList.map((item: IProductItem) => (
+        storedValue?.productList?.map((item: IProductItem) => (
           <Box productItem={item} activedId={storedValue?.activedId} />
         ))
       )}

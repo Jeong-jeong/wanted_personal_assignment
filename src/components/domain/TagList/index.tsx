@@ -11,7 +11,7 @@ const TagList = ({ storedValue }: IProductListProps) => {
   return (
     <S.TagWrapper>
       {React.Children.toArray(
-        storedValue?.productList.map((item: IProductItem) => (
+        storedValue?.productList?.map((item: IProductItem) => (
           <S.TagItem
             className="toggle"
             data-id={item.productId}
