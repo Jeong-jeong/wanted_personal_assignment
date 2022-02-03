@@ -24,7 +24,7 @@ export const Image = styled.div<ImageProps>`
   ${alignBackgroundImage('cover')};
 `;
 
-export const TooltipInfos = styled.p`
+export const TooltipInfos = styled.div`
   ${flexbox({ flex: 'flex', fd: 'column', ai: 'start', jc: 'between' })};
   height: 100%;
   line-height: 1.2em;
