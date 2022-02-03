@@ -1,21 +1,19 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { getStorageValue } from '@utils/functions';
 
 const useLocalStorage = <T, K>(key: string, initialValue?: T) => {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      return getStorageValue(key, initialValue);
-    } catch (error) {
-      return initialValue;
-    }
-  });
+  const memoStoredValue = useMemo(
+    () => getStorageValue(key, initialValue),
+    [key]
+  );
+  const [storedValue, setStoredValue] = useState(
+    memoStoredValue || initialValue
+  );
 
-  const setValue = (value: K | ((value: K) => K)): void => {
+  const setValue = (value: K) => {
     try {
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      setStoredValue(value);
+      window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       throw new Error('failed to set value');
     }

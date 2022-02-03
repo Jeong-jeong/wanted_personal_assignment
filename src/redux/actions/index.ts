@@ -25,9 +25,9 @@ export const fetchProductList =
   };
 
 export const updateActivedId =
-  (productId: number) => (dispatch: Dispatch<productListDispatchType>) => {
+  (clickedId: number) => (dispatch: Dispatch<productListDispatchType>) => {
     dispatch({
       type: UPDATE_ACTIVED_ID,
-      payload: productId,
+      payload: clickedId,
     });
   };

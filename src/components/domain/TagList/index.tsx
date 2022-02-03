@@ -1,35 +1,22 @@
 import React from 'react';
-import { IProductItem, IProductList } from '@types';
-import { useDispatch } from 'react-redux';
-import { updateActivedId } from '@redux/actions';
+import { IProductItem, IProductListProps } from '@types';
+import { useClickAway } from '@hooks';
 import { Tag } from '@components/base';
 import { TooltipContain } from '@components/domain';
 import * as S from './Style';
 
-interface ImageViewProps {
-  storedValue: IProductList;
-}
-
-const TagList = ({ storedValue }: ImageViewProps) => {
-  const dispatch = useDispatch();
-
-  const handleClick = (
-    e: React.MouseEvent<HTMLButtonElement>,
-    clickedId: number
-  ) => {
-    dispatch(updateActivedId(clickedId));
-  };
+const TagList = ({ storedValue }: IProductListProps) => {
+  useClickAway();
 
   return (
     <S.TagWrapper>
       {React.Children.toArray(
         storedValue?.productList.map((item: IProductItem) => (
           <S.TagItem
+            className="toggle"
+            data-id={item.productId}
             pointX={item.pointX}
-            pointY={item.pointY}
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-              handleClick(e, item.productId)
-            }>
+            pointY={item.pointY}>
             <Tag
               activedId={storedValue?.activedId}
               productId={item.productId}
@@ -42,4 +29,4 @@ const TagList = ({ storedValue }: ImageViewProps) => {
   );
 };
 
-export default TagList;
+export default React.memo(TagList);

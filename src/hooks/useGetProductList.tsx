@@ -17,19 +17,22 @@ const useGetProductList = (): [IProductList, boolean] => {
   const productReducer = useSelector(
     (state: RootReducerType) => state.ProductReducer
   );
-
   useEffect(() => {
     if (!storedValue) {
       // @NOTE: localStorage 저장된 값이 null일 떄만 dispatch
       dispatch(fetchProductList());
     }
-    if (productReducer.success) {
+    if (
+      productReducer.success &&
+      productReducer.productList?.activedId !== storedValue.activedId
+    ) {
+      // @NOTE: activedId가 다를 때만 저장되도록 하여 효율성을 높임.
       setValue(productReducer.productList);
       setIsError(false);
     } else {
       setIsError(true);
     }
-  }, [productReducer]);
+  }, [storedValue, productReducer]);
 
   return [storedValue, isError];
 };
