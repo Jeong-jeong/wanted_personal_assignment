@@ -4,6 +4,7 @@ import { API_END_POINT } from './environment';
 const API = () => {
   const instance = axios.create({
     baseURL: API_END_POINT,
+    timeout: 1000,
   });
 
   instance.interceptors.response.use(

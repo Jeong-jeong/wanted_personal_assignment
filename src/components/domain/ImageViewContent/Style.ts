@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
-export const Center = styled.div`
-  margin: 0 auto;
+export const ImageViewWrapper = styled.div`
+  position: relative;
+`;
+
+export const Image = styled.img`
+  width: ${({ theme }) => `${theme.imageViewSize.width}px`};
 `;
