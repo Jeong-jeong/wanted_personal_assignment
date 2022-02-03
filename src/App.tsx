@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StarView } from '@pages';
 
 function App() {
-  return <></>;
+  return <StarView />;
 }
 
-export default App;
+export default React.memo(App);
