@@ -1,13 +1,14 @@
 import { useCheckSameId } from '@hooks';
 import { searchTag, cancelTag } from '@assets/imgs';
 import * as S from './Style';
+import { ReactElement } from 'react';
 
 export interface TagProps {
   activedId: number;
   productId: number;
 }
 
-const Tag = ({ activedId, productId }: TagProps) => {
+const Tag = ({ activedId, productId }: TagProps): ReactElement => {
   const [isActive] = useCheckSameId(activedId, productId);
 
   return (

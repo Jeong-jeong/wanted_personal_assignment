@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { IProductItem, IProductListProps } from '@types';
 import { useClickAway } from '@hooks';
 import { Tag } from '@components/base';
@@ -10,7 +10,10 @@ interface TagLIstProps extends IProductListProps {
   rateOfImageDiff: number;
 }
 
-const TagList = ({ storedValue, rateOfImageDiff }: TagLIstProps) => {
+const TagList = ({
+  storedValue,
+  rateOfImageDiff,
+}: TagLIstProps): ReactElement => {
   useClickAway();
 
   return (

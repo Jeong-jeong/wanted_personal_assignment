@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { IProductItem } from '@types';
 import { useCheckSameId } from '@hooks';
 import { getPositionOfTooltip, putCommaEvery3 } from '@utils/functions';
@@ -16,7 +16,7 @@ const TooltipContain = ({
   item,
   activedId,
   rateOfImageDiff,
-}: TooltipContain) => {
+}: TooltipContain): ReactElement => {
   const {
     productId,
     productName,

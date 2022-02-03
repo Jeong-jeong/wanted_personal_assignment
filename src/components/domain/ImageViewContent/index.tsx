@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import React, { ReactElement, useRef } from 'react';
 import { IProductListProps } from '@types';
 import { useImageRate } from '@hooks';
 import { TagList } from '@components/domain';
 import * as S from './Style';
 
-const ImageViewContent = ({ storedValue }: IProductListProps) => {
+const ImageViewContent = ({ storedValue }: IProductListProps): ReactElement => {
   const imageRef = useRef(null);
   const imageRate = useImageRate(imageRef);
 

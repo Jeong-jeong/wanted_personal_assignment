@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { IProductListProps, IProductItem } from '@types';
 import { useSwipe } from '@hooks';
 import { Box } from '@components/base';
 import * as S from './Style';
 
-const ImageViewSwiper = ({ storedValue }: IProductListProps) => {
+const ImageViewSwiper = ({ storedValue }: IProductListProps): ReactElement => {
   const { swipeRef, isTransition, mouseStart, dragMove, dragEnd } = useSwipe(
     storedValue?.productList?.length,
     storedValue?.clickedSwipeIndex
