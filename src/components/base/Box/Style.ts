@@ -18,6 +18,7 @@ export const BoxWrapper = styled.div<BoxWrapperProps>`
   width: fit-content;
   height: fit-content;
   margin: 28px 6px;
+  cursor: pointer;
   ${({ isActive, theme }) => {
     switch (isActive) {
       case true:

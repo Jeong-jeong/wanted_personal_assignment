@@ -14,7 +14,10 @@ const Box = ({ productItem, activedId = 0 }: BoxProps): ReactElement => {
   const [isActive] = useCheckSameId(activedId, productId);
 
   return (
-    <S.BoxWrapper isActive={isActive}>
+    <S.BoxWrapper
+      className="toggle"
+      isActive={isActive}
+      data-id={productItem.productId}>
       <S.BoxInner imageUrl={imageUrl} />
       <Badge discountRate={discountRate} />
     </S.BoxWrapper>
