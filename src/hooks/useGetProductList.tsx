@@ -16,7 +16,7 @@ const useGetProductList = (): [IProductList, boolean] => {
     (state: RootReducerType) => state.ProductReducer
   );
   useEffect(() => {
-    if (!storedValue) {
+    if (!storedValue?.productList || !storedValue) {
       // @NOTE: localStorage 저장된 값이 null일 때만 dispatch
       dispatch(fetchProductList());
     }

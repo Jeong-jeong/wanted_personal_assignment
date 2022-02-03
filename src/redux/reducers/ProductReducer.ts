@@ -34,6 +34,7 @@ const ProductReducer = (
         success: false,
       };
     case UPDATE_DATASET: {
+      // @NOTE: activedId와 swipeIndex를 업데이트 하는 로직
       const parsedValue = getStorageValue(getProductListKey, {});
       const { clickedId, clickedSwipeIndex } = action.payload;
       return {

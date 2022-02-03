@@ -6,7 +6,7 @@ import * as S from './Style';
 
 const ImageViewSwiper = ({ storedValue }: IProductListProps) => {
   const { swipeRef, isTransition, mouseStart, dragMove, dragEnd, mouseLeave } =
-    useSwipe(storedValue.productList.length, storedValue.clickedSwipeIndex);
+    useSwipe(storedValue?.productList?.length, storedValue?.clickedSwipeIndex);
 
   return (
     <S.SwiperListWrapper>

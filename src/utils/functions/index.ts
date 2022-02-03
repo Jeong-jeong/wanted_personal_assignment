@@ -25,26 +25,5 @@ export const getPositionOfTooltip = (pointX: number, pointY: number) => {
 export const putCommaEvery3 = (price: number): string =>
   price.toLocaleString('ko-KR');
 
-const roundOfNumToONe = (num: number) =>
+export const roundOfNumToONe = (num: number) =>
   Number(Math.round(Number(num + 'e+1')) + 'e-1');
-
-export const getDiffOfImageRate = (
-  target: React.RefObject<HTMLImageElement>
-) => {
-  const originImageSize = {
-    width: target?.current?.naturalWidth || 0,
-    height: target?.current?.naturalHeight || 0,
-  };
-
-  const renderedImageSize = {
-    width: target?.current?.clientWidth || 0,
-    height: target?.current?.clientHeight || 0,
-  };
-
-  const differenceOfRate = {
-    width: roundOfNumToONe(renderedImageSize.width / originImageSize.width),
-    height: roundOfNumToONe(renderedImageSize.height / originImageSize.height),
-  };
-
-  return differenceOfRate.width + differenceOfRate.height;
-};
