@@ -5,8 +5,10 @@ import { Box } from '@components/base';
 import * as S from './Style';
 
 const ImageViewSwiper = ({ storedValue }: IProductListProps) => {
-  const { swipeRef, isTransition, mouseStart, dragMove, dragEnd, mouseLeave } =
-    useSwipe(storedValue?.productList?.length, storedValue?.clickedSwipeIndex);
+  const { swipeRef, isTransition, mouseStart, dragMove, dragEnd } = useSwipe(
+    storedValue?.productList?.length,
+    storedValue?.clickedSwipeIndex
+  );
 
   return (
     <S.SwiperListWrapper>
@@ -19,7 +21,7 @@ const ImageViewSwiper = ({ storedValue }: IProductListProps) => {
         onTouchMove={dragMove}
         onTouchEnd={dragEnd}
         onMouseUp={dragEnd}
-        onMouseLeave={mouseLeave}>
+        onMouseLeave={dragEnd}>
         {React.Children.toArray(
           storedValue?.productList?.map((item: IProductItem, index) => (
             <Box

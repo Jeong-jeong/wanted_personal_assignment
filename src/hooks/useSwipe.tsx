@@ -122,10 +122,6 @@ const useSwipe = (dataLength: number, clickedSwipeIndex: number) => {
     }
   };
 
-  const mouseLeave = () => {
-    setIsDragging(false);
-  };
-
   const dragEnd = () => {
     setIsDragging(false);
     const draggedX = swipeStartX - swipeEndX;
@@ -155,7 +151,6 @@ const useSwipe = (dataLength: number, clickedSwipeIndex: number) => {
     mouseStart,
     dragMove,
     dragEnd,
-    mouseLeave,
     isTransition,
   };
 };
