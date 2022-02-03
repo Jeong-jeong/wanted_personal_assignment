@@ -15,12 +15,36 @@ export const getPositionOfTooltip = (pointX: number, pointY: number) => {
   // @NOTE: 기본값이 left, bottom
   // @NOTE: 기준값인 width(height)의 절반보다 point 값이 클 경우 top 혹은 left로 변화
   const veritcal: Vertical =
-    pointY > theme.imageViewSize.height / 2 ? 'top' : 'bottom';
+    pointY > theme.size.imageViewHeight / 2 ? 'top' : 'bottom';
   const horizontal: Horizontal =
-    pointX > theme.imageViewSize.width / 2 ? 'right' : 'left';
+    pointX > theme.size.imageViewWidth / 2 ? 'right' : 'left';
 
   return { veritcal, horizontal };
 };
 
 export const putCommaEvery3 = (price: number): string =>
   price.toLocaleString('ko-KR');
+
+const roundOfNumToONe = (num: number) =>
+  Number(Math.round(Number(num + 'e+1')) + 'e-1');
+
+export const getDiffOfImageRate = (
+  target: React.RefObject<HTMLImageElement>
+) => {
+  const originImageSize = {
+    width: target?.current?.naturalWidth || 0,
+    height: target?.current?.naturalHeight || 0,
+  };
+
+  const renderedImageSize = {
+    width: target?.current?.clientWidth || 0,
+    height: target?.current?.clientHeight || 0,
+  };
+
+  const differenceOfRate = {
+    width: roundOfNumToONe(renderedImageSize.width / originImageSize.width),
+    height: roundOfNumToONe(renderedImageSize.height / originImageSize.height),
+  };
+
+  return differenceOfRate.width + differenceOfRate.height;
+};

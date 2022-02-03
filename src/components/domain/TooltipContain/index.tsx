@@ -3,14 +3,20 @@ import { IProductItem } from '@types';
 import { useCheckSameId } from '@hooks';
 import { getPositionOfTooltip, putCommaEvery3 } from '@utils/functions';
 import { Tooltip, MoveIcon } from '@components/base';
+import { theme } from '@styles';
 import * as S from './Style';
 
 interface TooltipContain {
   item: IProductItem;
   activedId: number;
+  rateOfImageDiff: number;
 }
 
-const TooltipContain = ({ item, activedId }: TooltipContain) => {
+const TooltipContain = ({
+  item,
+  activedId,
+  rateOfImageDiff,
+}: TooltipContain) => {
   const {
     productId,
     productName,
@@ -32,7 +38,11 @@ const TooltipContain = ({ item, activedId }: TooltipContain) => {
     <>
       {isActive && (
         <Tooltip
-          position={getPositionOfTooltip(pointX, pointY)}
+          position={getPositionOfTooltip(
+            // @NOTE: pointX, poinY 반대로 넣어줘야 함
+            pointY * rateOfImageDiff + theme.gap.image,
+            pointX * rateOfImageDiff
+          )}
           onClick={moveToPage}>
           <S.Image imageUrl={imageUrl} aria-label={productName} />
           <S.TooltipInfos>

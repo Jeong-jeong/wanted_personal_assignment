@@ -15,6 +15,7 @@ const fonts = {
 
 const gap = {
   Tooltip: 8,
+  image: 11,
 };
 
 const zIndex = {
@@ -22,9 +23,10 @@ const zIndex = {
   tooltipArrow: 1100,
 };
 
-const imageViewSize = {
-  width: 800,
-  height: 1000,
+const size = {
+  imageViewWidth: 800,
+  imageViewHeight: 998,
+  boxWidth: 160,
 };
 
 const theme = {
@@ -32,7 +34,7 @@ const theme = {
   fonts,
   gap,
   zIndex,
-  imageViewSize,
+  size,
 };
 
 export type Theme = typeof theme;
