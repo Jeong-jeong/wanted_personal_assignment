@@ -36,6 +36,13 @@ export const flexbox = ({
   `;
 };
 
+export const alignMiddle = () => css`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 export const alignBackgroundImage = (size: string) => css`
   background-position: center;
   background-repeat: no-repeat;

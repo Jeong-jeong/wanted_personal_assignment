@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { ImageViewContent, ImageViewSwiper } from '@components/domain';
+import { ErrorText } from '@components/base';
 import { useGetProductList } from '@hooks';
+import * as S from './Style';
 
 const StarView = () => {
   const [storedValue, isError] = useGetProductList();
 
-  useEffect(() => {
-    console.log(storedValue);
-  }, [storedValue]);
-
-  return (
-    <div>
+  return isError ? (
+    <ErrorText />
+  ) : (
+    <S.Center>
       <ImageViewContent storedValue={storedValue} />
       <ImageViewSwiper storedValue={storedValue} />
-    </div>
+    </S.Center>
   );
 };
 
-export default StarView;
+export default React.memo(StarView);
