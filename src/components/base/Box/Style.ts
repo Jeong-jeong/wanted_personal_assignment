@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { flexbox } from '@styles/commonStyles';
+import { alignBackgroundImage } from '@styles/commonStyles';
 
 export interface BoxWrapperProps {
   isActive: boolean;
@@ -43,5 +43,7 @@ export const BoxInner = styled.div<BoxInnerProps>`
   border-radius: 16px;
   border: ${({ theme }) => `0.5px solid ${theme.colors.border}`};
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+  ${alignBackgroundImage('cover')};
+
   user-select: none;
 `;
