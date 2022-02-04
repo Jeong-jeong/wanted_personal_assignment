@@ -9,6 +9,7 @@ const useSwipe = (dataLength: number, clickedSwipeIndex: number) => {
   const [isDragging, setIsDragging] = useState(false);
   const [swipeStartX, setSwipeStartX] = useState(0);
   const [swipeEndX, setSwipeEndX] = useState(0);
+  const [draggedX, setDraggedX] = useState(0);
   const [overflowedX, setDragOverflowedX] = useState(0);
 
   const getBoxWidth = () => theme.size.boxWidth + theme.gap.box * 2;
@@ -39,6 +40,29 @@ const useSwipe = (dataLength: number, clickedSwipeIndex: number) => {
       setPosition(lastPositionXRef.current - (swipeStartX - swipeEndX));
     }
   }, [swipeEndX]);
+
+  useEffect(() => {
+    if (!isDragging && swipeEndX !== 0) {
+      if (-draggedX <= -boxWidth / 2) {
+        if (CheckDragOverflowLast(draggedX)) {
+          // @NOTE: 오른쪽 drag 시 overflow 된 x값 보다 크다면
+          // overflow된 값만큼만 이동
+          setPosition(-overflowedX);
+        } else {
+          shiftSlide('right');
+        }
+      } else if (-draggedX >= boxWidth / 2) {
+        if (checkDragOverflowFirst()) {
+          // @NOTE: 왼쪽 drag 시 0보다 커진다면 0으로 고정
+          shiftSlide('none');
+        } else {
+          shiftSlide('left');
+        }
+      } else {
+        shiftSlide('none');
+      }
+    }
+  }, [draggedX]);
 
   useEffect(() => {
     // @NOTE: mounted 후 swipeRef 값을 참조하기 위해 useEffect 활용
@@ -124,26 +148,7 @@ const useSwipe = (dataLength: number, clickedSwipeIndex: number) => {
 
   const dragEnd = () => {
     setIsDragging(false);
-    const draggedX = swipeStartX - swipeEndX;
-
-    if (-draggedX <= -boxWidth / 2) {
-      if (CheckDragOverflowLast(draggedX)) {
-        // @NOTE: 오른쪽 drag 시 overflow 된 x값 보다 크다면
-        // overflow된 값만큼만 이동
-        setPosition(-overflowedX);
-      } else {
-        shiftSlide('right');
-      }
-    } else if (-draggedX >= boxWidth / 2) {
-      if (checkDragOverflowFirst()) {
-        // @NOTE: 왼쪽 drag 시 0보다 커진다면 0으로 고정
-        shiftSlide('none');
-      } else {
-        shiftSlide('left');
-      }
-    } else {
-      shiftSlide('none');
-    }
+    setDraggedX(swipeStartX - swipeEndX);
   };
 
   return {
