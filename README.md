@@ -5,7 +5,7 @@
 
 
 - [배포주소 바로가기](https://personal-assignment-firstweek.netlify.app)
-
+- [회고 바로기기](https://velog.io/@jeongs/프리온보딩-3번째-과제-회고-2주차)
 ## 🧐 프로젝트 빌드 및 실행 방법
 
 1. 상단 `Code` 버튼을 눌러 레포지토리를 클론 받습니다.
