@@ -6,6 +6,30 @@
 
 - [배포주소 바로가기](https://personal-assignment-firstweek.netlify.app)
 - [회고 바로기기](https://velog.io/@jeongs/프리온보딩-3번째-과제-회고-2주차)
+
+<br>
+<br>
+
+## 🛠 기술 스택
+### **📚 Frameworkes & Libraries**
+
+- react.js@17.0.2
+- typescript@^4.5.5
+- redux@^4.1.2
+- redux-thunk@^2.4.1
+- styled-components@^5.3.3
+- axios@^0.25.0
+
+
+### **🔧 Tools**
+
+- webpack@^5.67.0
+- commitizen@^4.2.4
+- netlify
+
+<br>
+<br>
+
 ## 🧐 프로젝트 빌드 및 실행 방법
 
 1. 상단 `Code` 버튼을 눌러 레포지토리를 클론 받습니다.
@@ -38,6 +62,8 @@ $ yarn start
 - [x] 할인율이 존재하는 경우 상단에 할인율 표시
 - [x] 입점된 가구, 입점되지 않은 가구 다르게 표시
 
+
+
 ### 추가 구현 사항
 
 - 데이터 저장
@@ -46,7 +72,6 @@ $ yarn start
   - 이미지의 width, height 절반씩 보다 pointX, pointY가 클 경우 말풍선과 tip의 위치가 변경
 - 하단 슬라이드 구현
 - 두 번이상 반복된 스타일들은 @styles/commonStyles에 재활용 가능하도록 저장
-
 
 <br>
 <br>
